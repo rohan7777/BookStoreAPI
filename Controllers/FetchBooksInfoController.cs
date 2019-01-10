@@ -17,14 +17,15 @@ namespace BookStoreAPI.Controllers
         {
             FetchBooksInfoLogic obj = new FetchBooksInfoLogic();
             obj.returnBookInfo();
-            //return new string[] { "value1", "value2" };
             return obj.returnBookInfo();
         }
 
         // GET: api/FetchBooksInfo/5
-        public string Get(int id)
+        public List<FetchBooksInfoModel> Get(int id)
         {
-            return "value";
+            FetchBooksInfoLogic obj = new FetchBooksInfoLogic();
+            obj.returnBookInfo();
+            return obj.returnBookInfo(id);
         }
 
         // POST: api/FetchBooksInfo
