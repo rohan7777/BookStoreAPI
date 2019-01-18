@@ -10,22 +10,32 @@ namespace BookStoreAPI.CRUD
 {
     public class Login
     {
-        public bool handleLogin(LoginModel val)
+        public LoginModel handleLogin(LoginModel val)
         {
+            LoginModel l1 = new LoginModel();
             var con = @"Data Source=IL013449;Initial Catalog=Test;User ID=sa;Password=~$ystem32";       //Connection String
             SqlConnection myConnection = new SqlConnection(con);
-            SqlCommand command = new SqlCommand("sp_loginValidation", myConnection);                    //Selection stored procedure as command to be executed
-            command.CommandType = System.Data.CommandType.StoredProcedure;                          
-            command.Parameters.Add(new SqlParameter("@emailvar", val.email));                           //Adding input parameter
-            command.Parameters.Add(new SqlParameter("@passwordvar", val.password));                     //Adding input parameter
-            command.Parameters.Add("@resultOut", SqlDbType.Int).Direction = ParameterDirection.Output;  //Adding output parameter
+            string commandString = "select * from Users where username = \'" + val.username.ToString() + "\' and password = \'" + val.password.ToString() + "\'";
+            SqlCommand command = new SqlCommand(commandString, myConnection);
+            SqlDataReader myreader;
             myConnection.Open();
-            command.ExecuteNonQuery();
-            int res = Convert.ToInt32(command.Parameters["@resultOut"].Value);                          //Fetch the result value
-            if (res == 1)
-                return true;
+            myreader = command.ExecuteReader();
+            if (myreader.HasRows)
+            {
+                while (myreader.Read())
+                {
+                    l1.AuthenticationStatus = true;
+                    l1.firstname = myreader[1].ToString();
+                    l1.lastname = myreader[2].ToString();
+                    l1.username = myreader[3].ToString();
+                    l1.password = null;
+                }
+            }
             else
-                return false;
+            {
+                l1.AuthenticationStatus = false;
+            }
+            return l1;
         }
     }
 }
