@@ -24,18 +24,12 @@ namespace BookStoreAPI.Controllers
         }
 
         // POST: api/Login
-        public string Post(LoginModel val)
+        public LoginModel Post(LoginModel val)
         {
             Login obj = new Login();
-            if (obj.handleLogin(val))
-            {
-                return "Login Successful!";
-            }
-            else
-            {
-                return "Login Failed.";
-            }
-            
+            LoginModel l1 = new LoginModel();
+            l1 = obj.handleLogin(val);
+            return l1;
         }
 
         // PUT: api/Login/5

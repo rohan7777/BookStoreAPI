@@ -7,7 +7,10 @@ namespace BookStoreAPI.Models
 {
     public class LoginModel
     {
-        public string email { get; set; } = "";
+        public bool AuthenticationStatus { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string username { get; set; } = "";
         public string password { get; set; } = "";
     }
 }
