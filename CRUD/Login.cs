@@ -29,6 +29,9 @@ namespace BookStoreAPI.CRUD
                     l1.lastname = myreader[2].ToString();
                     l1.username = myreader[3].ToString();
                     l1.password = null;
+                    l1.ID =  myreader[0].ToString();
+                    l1.isAdmin = myreader[6].ToString();
+                    
                 }
             }
             else
