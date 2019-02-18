@@ -25,9 +25,6 @@ namespace BookStoreAPI.CRUD
                     l1.Add(new CategoryModel() { ID = Convert.ToInt32(myreader[0]), Category = myreader[1].ToString()});
                 }
             }
-
-
-
             return l1;
         }
     }
