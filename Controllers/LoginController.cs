@@ -28,8 +28,8 @@ namespace BookStoreAPI.Controllers
         {
             Login obj = new Login();
             LoginModel l1 = new LoginModel();
-            l1 = obj.handleLogin(val);
-            return l1;
+            return (obj.handleLogin(val));
+            
         }
 
         // PUT: api/Login/5
