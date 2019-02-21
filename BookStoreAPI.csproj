@@ -239,11 +239,13 @@
     <Compile Include="Controllers\GetOrderLinesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SaveCartController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CRUD\FetchBooksInfoLogic.cs" />
     <Compile Include="CRUD\FetchOrderLines.cs" />
     <Compile Include="CRUD\GetCategoryLogic.cs" />
     <Compile Include="CRUD\Login.cs" />
+    <Compile Include="CRUD\SaveCartLogic.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -254,6 +256,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrderLinesModel.cs" />
+    <Compile Include="Models\SaveCartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
